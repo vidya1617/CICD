@@ -11,7 +11,7 @@ FILE_NAME = "sample_data.csv"
 RDS_HOST = "cicd-rds-db.cbikoukme5wo.ap-southeast-1.rds.amazonaws.com"
 RDS_USER = "admin"
 RDS_PASS = "Vidya2004"
-RDS_DB = "mycicdapp"  # Removed the semicolon
+RDS_DB = "mycicdapp"  
 
 def get_csv_from_s3():
     try:
@@ -19,7 +19,7 @@ def get_csv_from_s3():
         csv_content = response['Body'].read().decode('utf-8')
         df = pd.read_csv(io.StringIO(csv_content))
 
-        df.columns = ["name", "age", "city"]  # Update if needed
+        df.columns = ["name", "age", "city"]  
         
         return df
     except Exception as e:
